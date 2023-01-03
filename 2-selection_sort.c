@@ -1,6 +1,20 @@
 #include "sort.h"
 
 /**
+ * swap - function that make the swap of elements
+ * @xp: first element
+ * @yp: second element
+ *
+ * Return: void.
+ */
+void swap(int *xp, int *yp)
+{
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+
+/**
  * selection_sort - Short description
  * @array: Array to convert to a doubly linked list
  * @size: Size of the array
@@ -28,7 +42,7 @@ void selection_sort(int *array, size_t size)
 			/* swap the minimum element with the first element */
 			if (min_idx != i)
 			{
-				_swap(&array[min_idx], &array[i]);
+				swap(&array[min_idx], &array[i]);
 				print_array(array, size);
 			}
 		}
