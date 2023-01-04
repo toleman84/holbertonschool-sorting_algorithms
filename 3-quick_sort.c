@@ -7,11 +7,17 @@
  *
  * Return: void.
  */
-void swap(int *xp, int *yp)
+void swap(int *array, int low, int high, size_t size)
 {
-	int temp = *xp;
-	*xp = *yp;
-	*yp = temp;
+	int tmp;
+
+	if (array[low] != array[high])
+	{
+		tmp = array[low];
+		array[low] = array[high];
+		array[high] = tmp;
+		print_array(array, size);
+	}
 }
 
 /**
@@ -32,15 +38,16 @@ int partition(int *array, int low, int high, int size)
 	{
 		if (array[j] < pivot)
 		{
+			if (i != j)
+			{
+				swap(array, i, j, size);
+			}
 			i++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
 		}
 	}
 	if (i != high)
 	{
-		swap(&array[i + 1], &array[high]);
-		print_array(array, size);
+		swap(array, i + 1, high, size);
 	}
 	return (i + 1);
 }
