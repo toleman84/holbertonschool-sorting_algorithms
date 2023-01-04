@@ -2,16 +2,24 @@
 
 /**
  * swap - function that make the swap of elements
- * @xp: first element
- * @yp: second element
+ * @array: first element
+ * @low: second element
+ * @high: third element.
+ * @size: fourth element.
  *
  * Return: void.
  */
-void swap(int *xp, int *yp)
+void swap(int *array, int low, int high, size_t size)
 {
-	int temp = *xp;
-	*xp = *yp;
-	*yp = temp;
+	int tmp;
+
+	if (array[low] != array[high])
+	{
+		tmp = array[low];
+		array[low] = array[high];
+		array[high] = tmp;
+		print_array(array, size);
+	}
 }
 
 /**
@@ -37,16 +45,15 @@ void selection_sort(int *array, size_t size)
 		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[min_idx])
-			{
 				min_idx = j;
-				i++;
-				/* swap the minimum element with the first element */
-				if (min_idx != i)
-				{
-					swap(&array[min_idx], &array[i]);
-					print_array(array, size);
-				}
+
+			/* swap the minimum element with the first element */
+			if (array[min_idx] < array[i])
+			{
+				swap(array, min_idx, i, size);
+				print_array(array, size);
 			}
+			
 		}
 	}
 }
