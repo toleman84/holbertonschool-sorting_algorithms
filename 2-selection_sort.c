@@ -52,7 +52,6 @@ void selection_sort(int *array, size_t size)
 			{
 				swap(array, min_idx, i, size);
 			}
-			
 		}
 	}
 }
