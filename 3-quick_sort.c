@@ -2,8 +2,10 @@
 
 /**
  * swap - function that make the swap of elements
- * @xp: first element
- * @yp: second element
+ * @array: first element
+ * @low: second element
+ * @high: third element.
+ * @size: fourth element.
  *
  * Return: void.
  */
@@ -38,11 +40,11 @@ int partition(int *array, int low, int high, int size)
 	{
 		if (array[j] < pivot)
 		{
+			i++;
 			if (i != j)
 			{
 				swap(array, i, j, size);
 			}
-			i++;
 		}
 	}
 	if (i != high)
