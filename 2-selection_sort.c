@@ -46,12 +46,11 @@ void selection_sort(int *array, size_t size)
 		{
 			if (array[j] < array[min_idx])
 				min_idx = j;
-
-			/* swap the minimum element with the first element */
-			if (array[min_idx] < array[i])
-			{
-				swap(array, min_idx, i, size);
-			}
+		}
+		/* swap the minimum element with the first element */
+		if (array[min_idx] < array[i])
+		{
+			swap(array, min_idx, i, size);
 		}
 	}
 }
