@@ -10,10 +10,8 @@
  */
 void swap(listint_t **head, listint_t **tall, listint_t *low)
 {
-	/* n2 -> low  */
-	/* n1 -> tall */
-
 	(*tall)->next = low->next;
+
 	if (low->next != NULL)
 		low->next->prev = *tall;
 
@@ -32,11 +30,10 @@ void swap(listint_t **head, listint_t **tall, listint_t *low)
 }
 
 /**
+ * insertion_sort_list - Short description
+ * @list: first member
  *
- *
- *
- *
- *
+ * Return: void.
  */
 void insertion_sort_list(listint_t **list)
 {
