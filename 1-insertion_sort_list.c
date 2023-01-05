@@ -8,21 +8,27 @@
  *
  * Return: void.
  */
-void swap(listint_t *tall, listint_t *low, listint_t **head)
+void swap(listint_t **head, listint_t **tall, listint_t *low)
 {
+	/* n2 -> low  */
+	/* n1 -> tall */
+
+	(*tall)->next = low->next;
 	if (low->next != NULL)
-		low->next->prev = tall;
+		low->next->prev = *tall;
 
-	tall->next = low->next;
-	low->next = tall;
-	low->prev = tall->prev;
+	low->prev = (*tall)->prev;
+	low->next = *tall;
 
-	if (tall->prev == NULL)
-		*head = low;
+	if ((*tall)->prev != NULL)
+		(*tall)->prev->next = low;
 	else
-		tall->prev->next = low;
+		*head = low;
 
-	tall->prev = low;
+	(*tall)->prev = low;
+	*tall = low->prev;
+
+	print_list(*head);
 }
 
 /**
@@ -34,17 +40,19 @@ void swap(listint_t *tall, listint_t *low, listint_t **head)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *back = NULL, *key;
+	listint_t *in, *key, *temp;
 
 	if (!list || !(*list) || !((*list)->next))
 		return;
 
-	for (key = *list; key; key = key->next)
+	for (key = (*list)->next; key != NULL; key = temp)
 	{
-		key = *list;
-		while (back->prev && back->prev->n > back->n)
+		temp = key->next;
+		in = key->prev;
+
+		while (in != NULL && key->n < in->n)
 		{
-			swap(back->prev, back, list);
+			swap(list, &in, key);
 		}
 	}
 }
