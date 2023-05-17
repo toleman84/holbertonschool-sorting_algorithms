@@ -7,8 +7,6 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-    // print the array after each time you swap two elements
-
      size_t i, j, aux;
 
     for (i = 1; i < size - 2; i++)
@@ -20,6 +18,8 @@ void bubble_sort(int *array, size_t size)
                 aux = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = aux;
+
+                // print the array after each time you swap two elements
                 print_array(array, size);
             }
         }
