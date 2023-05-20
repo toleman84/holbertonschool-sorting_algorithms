@@ -12,7 +12,7 @@ void selection_sort(int *array, size_t size)
 
 	for (i = 0; i < size - 1; i++)
 	{
-		min_idx = i;
+		min_idx = array[i];
 		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[min_idx])
@@ -20,7 +20,7 @@ void selection_sort(int *array, size_t size)
 				min_idx = j;
 			}
 		}
-		if (min_idx != i + 1)
+		if (min_idx != i) //if (array[i] > min)
 		{
 			aux = array[i];
 			array[i] = array[min_idx];
