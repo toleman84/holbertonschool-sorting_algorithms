@@ -20,7 +20,7 @@ void selection_sort(int *array, size_t size)
 				min_idx = j;
 			}
 		}
-		if (min_idx > i)
+		if (min_idx != i)
 		{
 			aux = array[min_idx];
 			array[min_idx] = array[i];
