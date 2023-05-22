@@ -1,27 +1,28 @@
 #include "sort.h"
 
 /**
- * 
-*/
+ *insertion_sort_list - sort a doubly linked list of n° integers
+ *@list: imprima la lista después de cada vez que intercambie dos elementos
+ */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *a, *b;
 
 	if (!list)
 		return;
-	
+
 	a = *list;
-	
+
 	while (a)
 	{
-		
+
 		while (a->next && (a->next->n < a->n))
 		{
 			b = a->next;
 			a->next = b->next;
 			b->prev = a->prev;
 
-			if(a->prev)
+			if (a->prev)
 			{
 				a->prev->next = b;
 			}
@@ -35,7 +36,7 @@ void insertion_sort_list(listint_t **list)
 				a = b->prev;
 			else
 				*list = b;
-	
+
 			print_list(*list);
 		}
 		a = a->next;
