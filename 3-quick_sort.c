@@ -64,13 +64,8 @@ void swap(int *array, int a, int b, int size)
 
 	void quick_sort(int *array, size_t size)
 	{
-		size_t a = 0;
-
-		for (; a < size; a++)
-		{
-			printf("%d ", array[a]);
-		}
-		printf("\n");
+		if (array == NULL || size <= 1)
+			return;
 
 		recursion(array, 0, size - 1, size);
 	}
