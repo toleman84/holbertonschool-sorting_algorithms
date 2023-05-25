@@ -19,13 +19,17 @@ typedef struct listint_s
 } listint_t;
 
 void print_array(const int *array, size_t size);
+
 void print_list(const listint_t *list);
-
+	/*task 0*/
 void bubble_sort(int *array, size_t size);
+	/*task 1*/
 void insertion_sort_list(listint_t **list);
+	/*task 2*/
 void selection_sort(int *array, size_t size);
-/*void quick_sort(int *array, size_t size);*/
-
-
-
+	/*task 3*/
+void quick_sort(int *array, size_t size);
+void swap(int *array, int a, int b, int size);
+int Lomuto(int *array, int boy, int large, int size);
+void recursion(int array[], int boy, int large, int size);
 #endif
